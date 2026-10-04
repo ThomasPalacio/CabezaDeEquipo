@@ -3,7 +3,7 @@
 Trabajo Práctico de NLP. Sistema de **Retrieval-Augmented Generation** en español sobre un corpus
 de artículos científicos de psicología del deporte aplicada al fútbol formativo.
 
-**Integrantes:** _(completar)_
+**Integrantes:** Thomas Palacio y Ezequiel Suñer
 **Fecha de entrega:** 09/10/2026
 
 ---
@@ -64,6 +64,11 @@ respuestas deberían reproducirse idénticas entre corridas.
 Cinco artículos científicos en español, de acceso abierto. **176.872 caracteres** tras la limpieza
 —2,9 veces el mínimo exigido— distribuidos en cinco documentos.
 
+La carpeta `Corpus/` contiene **nueve PDFs**: cinco integran el corpus y cuatro fueron evaluados
+y no incorporados.
+
+### Los cinco documentos del corpus
+
 | Archivo | Referencia | Eje |
 |---|---|---|
 | `iberoam_intervencion.pdf` | Navarrón et al. (2017), Rev. Iberoamericana de Psicología del Ejercicio y el Deporte, 12(1) | Habilidades psicológicas |
@@ -72,24 +77,33 @@ Cinco artículos científicos en español, de acceso abierto. **176.872 caracter
 | `sportis_motiv_ansied.pdf` | Arroyo del Bosque et al. (2025), Sportis, 11(3) | Ansiedad precompetitiva |
 | `ariza_fisio_psico_futbol.pdf` | León Ariza et al. (2011), Cuerpo, Cultura y Movimiento, 1(2) | Demandas de la competencia |
 
-### Documentos presentes en `Corpus/` que **no** integran el corpus
+### Los cuatro documentos evaluados y no incorporados
 
-La carpeta contiene además cuatro documentos de registro aplicado —*Ganar con la Cabeza*,
-*Consejos psicológico-deportivos*, *Gestión de la frustración* y *Documento_completo*— que fueron
-evaluados pero **no incorporados**. Se conservan porque documentan una de las conclusiones del
-trabajo.
+Las cifras corresponden al texto extraído antes de la limpieza.
 
-El análisis mostró que el corpus de artículos científicos responde bien las preguntas *sobre los
-estudios* y mal las preguntas *sobre qué hacer*: la proporción de construcciones descriptivas
-frente a instructivas es de 3,6 a 1. Estos cuatro documentos presentan el perfil inverso —*Ganar
-con la Cabeza* tiene 64 marcas instructivas por cada descriptiva— y resolverían esa carencia.
+| Archivo | Qué es | Caracteres | Instructivas / descriptivas |
+|---|---|---|---|
+| `Libro-Ganar-Con-La-Cabeza-...pdf` | *Ganar con la Cabeza: una guía completa del entrenamiento mental para el fútbol*. Libro, 289 páginas | 478.750 | 839 / 13 |
+| `Documento_completo__.pdf` | Cornejo Zambrano (2012), *Intervención psicológica en futbolistas juveniles*. Tesis de Maestría en Deportes, UNLP, 132 páginas | 187.254 | 71 / 43 |
+| `Consejos_psicologico-deportivos_para_el_futbolista.pdf` | Material divulgativo, 17 páginas | 54.779 | 88 / 5 |
+| `Tema-4-Gestion-de-la-frustracion-...-Diego-Benito.pdf` | Material formativo sobre gestión de la frustración, 29 páginas | 42.412 | 16 / 2 |
 
-No se incorporaron por un problema de escala: sólo ese libro aporta 478.750 caracteres, 2,7 veces
-todo el corpus actual. Sumados los cuatro, el material nuevo representaría el 81% del corpus y el
-libro por sí solo el 51%, con lo que los artículos quedarían diluidos y las métricas de
-recuperación de la Fase 3 dejarían de ser comparables. Incorporarlos de forma rigurosa exige
-dividir el libro por capítulos, rebalancear el corpus y repetir la evaluación completa, lo que
-queda planteado como trabajo futuro en el reporte.
+Se conservan en el repositorio porque documentan una de las conclusiones del trabajo.
+
+**Por qué se los consideró.** El análisis mostró que el corpus de artículos científicos responde
+bien las preguntas *sobre los estudios* y mal las preguntas *sobre qué hacer*: en el corpus la
+proporción de construcciones descriptivas frente a instructivas es de 3,6 a 1. Estos cuatro
+documentos presentan el perfil inverso y cubrirían esa carencia.
+
+**Por qué no se incorporaron.** Por dos razones de distinto peso. La primera afecta a los cuatro:
+sumarlos obliga a repetir la evaluación completa, porque las métricas reportadas dejarían de ser
+comparables, y la anotación correspondiente excede el alcance de esta entrega. La segunda afecta
+al libro y a la tesis: su tamaño desbalancea el corpus —sumados los cuatro, el material nuevo
+sería el 81% del total y el libro por sí solo el 51%—, de modo que los cinco artículos quedarían
+diluidos. Incorporarlos con rigor exige además dividir el libro por capítulos, ya que un documento
+de 289 páginas como unidad única vuelve ininterpretable el `hit@k`.
+
+Ambas cuestiones quedan planteadas como trabajo futuro en el reporte.
 
 ## Organización del notebook
 

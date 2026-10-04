@@ -33,7 +33,23 @@ sin inventar.
 1. Abrir el notebook en Google Colab.
 2. `Entorno de ejecución → Cambiar tipo de entorno → T4 GPU`.
 3. `Entorno de ejecución → Reiniciar y ejecutar todo`.
-4. Subir los cinco PDFs del corpus cuando lo solicita la celda 1.2.
+
+**Los PDFs se cargan solos.** La celda 1.2 prueba cuatro orígenes y usa el primero disponible:
+
+| Orden | Origen | Cuándo aplica |
+|---|---|---|
+| 1 | Carpeta `Corpus/` del proyecto | Carpeta completa subida a Colab, o ejecución local |
+| 2 | Clonado de este repositorio | Colab sin archivos: basta abrir el notebook y ejecutar |
+| 3 | Google Drive | Si se copió la carpeta al Drive propio |
+| 4 | Subida manual | Último recurso |
+
+La búsqueda local no se limita al directorio actual: en Colab el directorio de trabajo es
+`/content`, de modo que una carpeta subida entera queda en `/content/<nombre>/Corpus`. La celda
+recorre hasta tres niveles de profundidad.
+
+Como el repositorio es público y el corpus está versionado en él, el origen 2 hace que el trabajo
+sea **reproducible por un tercero sin disponer de los archivos**: alcanza con abrir el notebook en
+Colab y ejecutarlo.
 
 Los modelos empleados son de acceso abierto y se descargan sin autenticación:
 `sentence-transformers/paraphrase-multilingual-mpnet-base-v2` para embeddings,
